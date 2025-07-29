@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Support</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0a0b0d;
+      color: #ffffff;
+    }
+
+    header {
+      background-color: #121417;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #1f1f22;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 30px 20px;
+    }
+
+    .section {
+      background-color: #1a1b1f;
+      border: 1px solid #2c2e33;
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      margin-bottom: 16px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    input, textarea {
+      width: 100%;
+      background-color: #121417;
+      border: 1px solid #2c2e33;
+      padding: 12px;
+      color: #fff;
+      border-radius: 6px;
+      margin-bottom: 16px;
+    }
+
+    button {
+      background-color: #3b82f6;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #2563eb;
+    }
+
+    .faq {
+      margin-top: 10px;
+    }
+
+    .faq h4 {
+      margin-bottom: 8px;
+    }
+
+    .faq p {
+      margin: 0;
+      color: #ccc;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1 style="font-size: 20px;">🛠 Support</h1>
+    <a href="index.html" style="color: #3b82f6; text-decoration: none;">← Back</a>
+  </header>
+
+  <div class="container">
+
+    <div class="section">
+      <h2>Contact Us</h2>
+      <form>
+        <label>Your Email</label>
+        <input type="email" placeholder="example@domain.com" required />
+
+        <label>Subject</label>
+        <input type="text" placeholder="Issue or question title" required />
+
+        <label>Message</label>
+        <textarea rows="5" placeholder="Describe your issue here..." required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+
+    <div class="section">
+      <h2>FAQs</h2>
+
+      <div class="faq">
+        <h4>How long does verification take?</h4>
+        <p>Usually between 5-15 minutes depending on queue volume.</p>
+      </div>
+
+      <div class="faq">
+        <h4>How do I list a new item?</h4>
+        <p>Go to the Dashboard → Create Listing and fill in your product details.</p>
+      </div>
+
+      <div class="faq">
+        <h4>How can I contact live support?</h4>
+        <p>Use the form above or message us on WhatsApp via your dashboard link.</p>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

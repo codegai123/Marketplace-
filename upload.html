@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Submit a Foreign Account Listing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      background: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      margin: 0;
+    }
+
+    h1 {
+      text-align: center;
+      color: #0af;
+    }
+
+    form {
+      background: #1a1a1a;
+      max-width: 500px;
+      margin: auto;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #000;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      background: #222;
+      color: #fff;
+      border: 1px solid #333;
+      border-radius: 5px;
+    }
+
+    button {
+      margin-top: 20px;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    .message {
+      margin-top: 20px;
+      text-align: center;
+      color: #0f0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Submit Your Foreign Account Listing</h1>
+
+  <form class="form-container" action="https://formsubmit.co/nwoforucheoma629@gmail.com" method="POST">
+    <!-- Optional: Redirect after submission -->
+    <input type="hidden" name="_next" value="thank-you.html">
+    <input type="hidden" name="_captcha" value="false">
+
+    <label for="accountName">Account Name</label>
+    <input type="text" name="Account Name" id="accountName" placeholder="e.g. John Smith" required>
+
+    <label for="title">Listing Title</label>
+    <input type="text" name="Title" id="title" placeholder="e.g. Verified UK WhatsApp" required>
+
+    <label for="price">Price (₦)</label>
+    <input type="number" name="Price" id="price" placeholder="e.g. 15000" required>
+
+    <label for="category">Category</label>
+    <select name="Category" id="category" required>
+      <option value="">Select one</option>
+      <option value="facebook">Facebook</option>
+      <option value="whatsapp">WhatsApp</option>
+      <option value="email">Email</option>
+      <option value="instagram">Instagram</option>
+      <option value="linkedin">LinkedIn</option>
+    </select>
+
+    <label for="description">Description</label>
+    <textarea name="Description" id="description" rows="3" placeholder="What makes this account valuable?" required></textarea>
+
+    <label for="email">Your Email</label>
+    <input type="email" name="Email" id="email" placeholder="e.g. example@gmail.com" required>
+
+    <button type="submit">Submit</button>
+  </form>
+
+</body>
+</html>

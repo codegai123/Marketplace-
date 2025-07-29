@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-[#0f0f0f] text-white">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Referral</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen px-4 py-6 text-white bg-[#0f0f0f]">
+  <!-- Header -->
+  <div class="flex items-center justify-between mb-6">
+    <button onclick="window.history.back()" class="text-blue-400 font-semibold">← Back</button>
+    <h1 class="text-xl font-bold">Referral</h1>
+    <div></div>
+  </div>
+
+  <!-- Referral Code -->
+  <div class="bg-[#1a1a1a] p-6 rounded-xl shadow-lg mb-6 text-center">
+    <p class="text-gray-400 text-sm mb-2">Your Referral Link</p>
+    <div class="flex items-center justify-between bg-[#2a2a2a] rounded-lg px-4 py-2">
+      <span id="referralLink" class="truncate text-sm">https://appsite.com/ref/xyz123</span>
+      <button onclick="copyLink()" class="text-blue-400 font-semibold text-sm">Copy</button>
+    </div>
+    <p class="text-gray-500 text-xs mt-2">Earn ₦500 per user who signs up with your link.</p>
+  </div>
+
+  <!-- Referral Stats -->
+  <div class="grid grid-cols-2 gap-4 mb-6">
+    <div class="bg-[#1e1e1e] p-4 rounded-xl text-center">
+      <p class="text-sm text-gray-400">Total Referrals</p>
+      <p class="text-xl font-bold mt-1">14</p>
+    </div>
+    <div class="bg-[#1e1e1e] p-4 rounded-xl text-center">
+      <p class="text-sm text-gray-400">Earnings</p>
+      <p class="text-xl font-bold mt-1">₦7,000</p>
+    </div>
+  </div>
+
+  <!-- Referral History -->
+  <h2 class="text-lg font-semibold mb-2">Referral History</h2>
+  <div class="space-y-4">
+    <div class="flex justify-between items-center bg-[#1e1e1e] p-4 rounded-xl">
+      <div>
+        <p class="font-medium">john_doe</p>
+        <p class="text-sm text-gray-500">Jul 26, 2025</p>
+      </div>
+      <p class="text-green-400 font-semibold">+₦500</p>
+    </div>
+    <div class="flex justify-between items-center bg-[#1e1e1e] p-4 rounded-xl">
+      <div>
+        <p class="font-medium">queen_babe</p>
+        <p class="text-sm text-gray-500">Jul 24, 2025</p>
+      </div>
+      <p class="text-green-400 font-semibold">+₦500</p>
+    </div>
+  </div>
+
+  <script>
+    function copyLink() {
+      const link = document.getElementById('referralLink').textContent;
+      navigator.clipboard.writeText(link);
+      alert("Referral link copied!");
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-black text-white">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Explore Accounts - Search</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    #results {
+      max-height: 400px;
+      overflow-y: auto;
+    }
+    #results::-webkit-scrollbar {
+      width: 8px;
+    }
+    #results::-webkit-scrollbar-thumb {
+      background-color: #3b82f6;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="font-sans">
+
+  <!-- Navbar -->
+  <header class="flex items-center justify-between px-6 py-4 border-b border-gray-800">
+    <a href="index.html" class="text-2xl font-bold text-blue-500">MarketPlace</a>
+    <nav class="space-x-6 hidden md:flex text-gray-300">
+      <a href="dashboard.html" class="hover:text-blue-500 transition">Dashboard</a>
+      <a href="search.html" class="hover:text-blue-500 transition font-semibold">Explore</a>
+      <a href="upload.html" class="hover:text-blue-500 transition">Create Listing</a>
+      <a href="refer.html" class="hover:text-blue-500 transition">Refer</a>
+      <a href="settings.html" class="hover:text-blue-500 transition">Settings</a>
+    </nav>
+    <button onclick="document.getElementById('mobileMenu').classList.toggle('hidden')" 
+            class="md:hidden text-blue-500 text-3xl font-bold focus:outline-none">&#9776;</button>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden bg-[#111111] border-b border-gray-800 px-6 py-4 md:hidden">
+    <a href="dashboard.html" class="block py-2 border-b border-gray-800 text-gray-300 hover:text-blue-500">Dashboard</a>
+    <a href="search.html" class="block py-2 border-b border-gray-800 text-gray-300 hover:text-blue-500 font-semibold">Explore</a>
+    <a href="upload.html" class="block py-2 border-b border-gray-800 text-gray-300 hover:text-blue-500">Create Listing</a>
+    <a href="refer.html" class="block py-2 border-b border-gray-800 text-gray-300 hover:text-blue-500">Refer</a>
+    <a href="settings.html" class="block py-2 border-b border-gray-800 text-gray-300 hover:text-blue-500">Settings</a>
+  </div>
+
+  <!-- Search Section -->
+  <section class="max-w-4xl mx-auto px-6 py-12">
+    <h1 class="text-4xl font-extrabold mb-8 text-center">Explore Working Foreign Accounts</h1>
+
+    <input
+      type="search"
+      id="searchInput"
+      placeholder="Search by account name, seller, or category..."
+      autocomplete="off"
+      class="w-full rounded-xl border border-gray-700 bg-[#121212] p-4 text-white text-lg placeholder-gray-500 focus:border-blue-500 focus:ring focus:ring-blue-600 focus:ring-opacity-50 outline-none transition"
+      oninput="performSearch()"
+    />
+
+    <div id="results" class="mt-8 space-y-4"></div>
+    <p id="noResults" class="mt-8 text-center text-gray-500 hidden">No matching accounts found.</p>
+  </section>
+
+  <script>
+    const whatsappNumber = "09031830593"; // Your number
+
+    const listings = [
+      { title: "Verified USA Facebook Account", name: "John Doe", price: 15000, category: "facebook", description: "Fully verified, active, and ready to use." },
+      { title: "UK WhatsApp Number", name: "Sarah Lee", price: 7500, category: "whatsapp", description: "Clean, active WhatsApp with UK-based number." },
+      { title: "Canadian Gmail Address", name: "Michael Smith", price: 10000, category: "email", description: "Fresh Gmail with recovery options set." },
+      { title: "Australian Instagram Account", name: "Emma Wilson", price: 12000, category: "instagram", description: "Verified with high engagement & followers." },
+      { title: "US LinkedIn Profile", name: "David Johnson", price: 18000, category: "linkedin", description: "Professional profile with strong network." },
+
+      { title: "US Twitter Account", name: "Olivia Brown", price: 14000, category: "twitter", description: "Verified and active Twitter profile." },
+      { title: "Germany WhatsApp Number", name: "Liam Miller", price: 8000, category: "whatsapp", description: "Active WhatsApp number based in Germany." },
+      { title: "Fresh UK Gmail Address", name: "Sophia Davis", price: 9500, category: "email", description: "Clean Gmail with recovery options." },
+      { title: "France Instagram Account", name: "Noah Garcia", price: 11500, category: "instagram", description: "Active IG account with engaged followers." },
+      { title: "Canadian LinkedIn Profile", name: "Isabella Martinez", price: 17000, category: "linkedin", description: "Strong professional network profile." },
+
+      { title: "Verified USA Snapchat", name: "Mason Rodriguez", price: 13000, category: "snapchat", description: "Fully verified Snapchat account." },
+      { title: "UK WhatsApp Business Number", name: "Mia Hernandez", price: 9000, category: "whatsapp", description: "Business WhatsApp number UK." },
+      { title: "US Gmail Address", name: "Ethan Lopez", price: 10500, category: "email", description: "Fresh Gmail with recovery options." },
+      { title: "Australian TikTok Account", name: "Amelia Gonzalez", price: 12500, category: "tiktok", description: "High engagement TikTok profile." },
+      { title: "UK LinkedIn Profile", name: "Alexander Wilson", price: 17500, category: "linkedin", description: "Professional LinkedIn profile with network." },
+
+      { title: "Verified USA Pinterest Account", name: "Charlotte Anderson", price: 13500, category: "pinterest", description: "Active Pinterest profile ready to use." },
+      { title: "UK WhatsApp Number (Secondary)", name: "James Thomas", price: 7200, category: "whatsapp", description: "Secondary WhatsApp UK number." },
+      { title: "Canadian Yahoo Email", name: "Amelia Jackson", price: 9800, category: "email", description: "Clean Yahoo email with recovery." },
+      { title: "Australian Instagram Business", name: "Benjamin White", price: 12300, category: "instagram", description: "Business IG account with followers." },
+      { title: "US LinkedIn Sales Profile", name: "Evelyn Harris", price: 18500, category: "linkedin", description: "Sales oriented LinkedIn profile." },
+
+      { title: "Verified USA Reddit Account", name: "Daniel Martin", price: 12800, category: "reddit", description: "Active Reddit account with karma." },
+      { title: "UK WhatsApp Number (Tertiary)", name: "Harper Clark", price: 7000, category: "whatsapp", description: "Third WhatsApp UK number." },
+      { title: "Canadian Gmail Account (Pro)", name: "Matthew Lewis", price: 11000, category: "email", description: "Pro Gmail with extra features." },
+      { title: "Australian Instagram Verified", name: "Ella Robinson", price: 12700, category: "instagram", description: "Verified Instagram account." },
+      { title: "US LinkedIn Marketing Profile", name: "Michael Walker", price: 19000, category: "linkedin", description: "Marketing LinkedIn profile." },
+
+      { title: "USA Snapchat Business", name: "Sofia Hall", price: 14000, category: "snapchat", description: "Business Snapchat account." },
+      { title: "UK WhatsApp Number VIP", name: "Jack Young", price: 9500, category: "whatsapp", description: "VIP WhatsApp number UK." },
+      { title: "Canadian Gmail VIP", name: "Lily King", price: 11500, category: "email", description: "VIP Gmail with premium features." },
+      { title: "Australian TikTok Verified", name: "Henry Wright", price: 13000, category: "tiktok", description: "Verified TikTok account." },
+      { title: "UK LinkedIn Profile VIP", name: "Grace Scott", price: 20000, category: "linkedin", description: "VIP LinkedIn profile." }
+    ];
+
+    const searchInput = document.getElementById("searchInput");
+    const resultsContainer = document.getElementById("results");
+    const noResultsMsg = document.getElementById("noResults");
+
+    function performSearch() {
+      const query = searchInput.value.trim().toLowerCase();
+      resultsContainer.innerHTML = "";
+      noResultsMsg.classList.add("hidden");
+
+      if (query.length === 0) {
+        return;
+      }
+
+      const filtered = listings.filter(item =>
+        item.title.toLowerCase().includes(query) ||
+        item.category.toLowerCase().includes(query) ||
+        item.name.toLowerCase().includes(query)
+      );
+
+      if (filtered.length === 0) {
+        noResultsMsg.classList.remove("hidden");
+        return;
+      }
+
+      filtered.forEach(item => {
+        const card = document.createElement("div");
+        card.className = "bg-[#1a1a1a] rounded-xl p-6 shadow-lg hover:shadow-blue-600 transition cursor-pointer";
+
+        // WhatsApp link using international format with your number:
+        const whatsappLink = `https://wa.me/234${whatsappNumber.replace(/^0/, '')}`;
+
+        card.innerHTML = `
+          <h2 class="text-xl font-semibold mb-1">${item.title}</h2>
+          <p class="text-gray-400 mb-1"><strong>Account Holder:</strong> ${item.name}</p>
+          <p class="text-gray-400 mb-3">${item.description}</p>
+          <div class="flex justify-between items-center mb-3">
+            <div class="text-blue-500 font-bold text-lg">₦${item.price.toLocaleString()}</div>
+            <div class="text-sm text-gray-500 capitalize bg-gray-800 px-3 py-1 rounded-full">${item.category}</div>
+          </div>
+          <a href="${whatsappLink}" target="_blank" rel="noopener noreferrer"
+             class="inline-block px-4 py-2 bg-green-600 hover:bg-green-700 rounded-lg text-white font-semibold transition">
+             Chat on WhatsApp
+          </a>
+        `;
+        resultsContainer.appendChild(card);
+      });
+    }
+  </script>
+
+</body>
+</html>
